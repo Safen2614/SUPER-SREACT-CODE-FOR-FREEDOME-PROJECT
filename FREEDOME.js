@@ -22,7 +22,7 @@ const SPEED = 320
 // ])
 
 // onKeyDown() registers an event that runs every frame as long as user is holding a certain key
-onKeyDown("left", () => {
+onKeyDown( "a", () => {
 	// .move() is provided by pos() component, move by pixels per second
 	player.move(-MOVE_SPEED, 0)
 })
