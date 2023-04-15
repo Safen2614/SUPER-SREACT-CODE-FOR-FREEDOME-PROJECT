@@ -1,6 +1,6 @@
 
 kaboom({
-	background: [178,172,136],
+	background: [255,205,50],
 })
 
 		// Load assets
@@ -41,7 +41,7 @@ onKeyDown("down", () => {
 
 
 
-setGravity(1600)
+setGravity(3000)
 
 onKeyPress("space", () => {
 	// .isGrounded() is provided by body()
@@ -49,6 +49,9 @@ onKeyPress("space", () => {
 		// .jump() is provided by body()
 		player.jump(JUMP_FORCE)
 	}
+})
+onKeyPress("space", () => {
+
 })
 
 
@@ -66,7 +69,10 @@ add([
 var lvl = addLevel([
 	// Design the level layout with symbols
 	"@  ^ $$",
-	"=======",
+	"===========",
+	" ",
+	"     ","============"
+
 ], {
 	// The size of each grid
 	tileWidth: 64,
