@@ -69,7 +69,7 @@ add([
 var lvl = addLevel([
 	// Design the level layout with symbols
 	"@  ^ $$",
-	"===========", " ", "=="
+	"===========", " ", "==",
 	" ",
 	"     ","============"
 
