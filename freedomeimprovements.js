@@ -13,7 +13,7 @@ loadSprite("coin", "coin.png")
 setGravity(3200)
 
 // custom component controlling enemy patrol movement
-function patrol(speed = 9000000000000, dir = 1) {
+function patrol(speed = 300, dir = 1) {
 	return {
 		id: "patrol",
 		require: [ "pos", "area" ],
@@ -64,7 +64,7 @@ const LEVELS = [
                 "             =                  ",
                 "             =          =        ",
                 "             =          =       ",
-                " @   ^^^     =          =        ",
+                " @   >     =          =        ",
                 "============    ==============",
                 "                                   ",
                 "            ====                   ",
