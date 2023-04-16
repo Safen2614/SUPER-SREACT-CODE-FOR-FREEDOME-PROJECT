@@ -220,14 +220,15 @@ scene("lose", () => {
     add([
         text("You Lose"),
     ])
-    onKeyRelease(("enter") => go("game"))
+    onMousePress(() => go("game"))
+
 })
 
 scene("win", () => {
     add([
         text("You Win"),
     ])
-    onKeyPress(() => go("game"))
+    onMousePress(() => go("game"))
 })
 
 go("game")
