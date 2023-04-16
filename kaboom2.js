@@ -167,8 +167,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
     player.onCollide("coin", (coin) => {
         destroy(coin)
 
-        // score++
-        // scoreLabel.text = score
+        
     })
 
 
