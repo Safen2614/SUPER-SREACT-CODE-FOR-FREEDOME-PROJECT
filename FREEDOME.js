@@ -102,12 +102,23 @@ var lvl = addLevel([
 		],
 	},
 })
+
+// add([
+//     health(3),
+// ])
+
+
+
 // Get the player object from tag
 const player = lvl.get("player")[0]
 //Back to the original position if hit a "danger" item
 player.onCollide("danger", () => {
-	player.pos = lvl.tile2Pos(0, 0)
+	// player.pos = lvl.tile2Pos(0, 0)
+	player.hurt(1)
+	danger.hurt(1)
 })
+
+
 
 // Eat the coin!
 player.onCollide("coin", (coin) => {
