@@ -43,8 +43,8 @@ const MOVE_SPEED = 480
 const FALL_DEATH = 2400
 
 const LEVELS = [
-	[
-		"           ",
+	[   "         *   ",
+		"  *         ",
 		"          ",
 		"       $$   ",
 		"     ===   ",
@@ -159,6 +159,14 @@ const levelConf = {
 			anchor("bot"),
 			offscreen({ hide: true }),
 			"danger",
+		],
+        "*": () => [
+			sprite("star"),
+			area(),
+			body({ isStatic: true }),
+			anchor("bot"),
+			offscreen({ hide: true }),
+			"platform",
 		],
 	},
 }
