@@ -9,6 +9,8 @@ loadSprite("spike", "spikes.png")
 loadSprite("grass", "grass.jpeg")
 loadSprite("portal", "portal.png")
 loadSprite("coin", "coin.png")
+loadSprite("fake", "portal.png")
+
 
 setGravity(3200)
 
@@ -75,7 +77,7 @@ const LEVELS = [
         "                             ",
         "                            ",
         "                             ",
-        "                            ",
+        "               f             ",
         "=============================",
         "                            ",
         "                             ",
@@ -136,6 +138,14 @@ const levelConf = {
 			pos(0, -12),
 			offscreen({ hide: true }),
 			"portal",
+		],
+        "f": () => [
+			sprite("fake"),
+			area(),
+			body({ isStatic: true }),
+			anchor("bot"),
+			offscreen({ hide: true }),
+			"danger",
 		],
 	},
 }
