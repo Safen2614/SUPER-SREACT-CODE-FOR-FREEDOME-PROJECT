@@ -66,7 +66,7 @@
 // 	color(	255, 253, 208)
 // ])
 
-<<<<<<< HEAD
+
 var lvl = addLevel([
 	// Design the level layout with symbols
 	"@  ^ $$",
@@ -132,13 +132,13 @@ player.onCollide("coin", (coin) => {
 const JUMP_FORCE = 1320
 const MOVE_SPEED = 480
 const FALL_DEATH = 2400
-=======
+
 // var lvl = addLevel([
 // 	// Design the level layout with symbols
 // 	"@  ^ $$$$          ======",
 // 	"===========     ===",
 
->>>>>>> fae1a1663d317340ac8044de9285b6a7c2e75536
+
 
 // ], {
 // 	// The size of each grid
