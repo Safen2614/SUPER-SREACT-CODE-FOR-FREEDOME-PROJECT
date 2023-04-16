@@ -10,6 +10,8 @@ loadSprite("grass", "grass.jpeg")
 loadSprite("portal", "portal.png")
 loadSprite("coin", "coin.png")
 loadSprite("fake", "portal.png")
+loadSprite("star", "star.png")
+
 
 
 setGravity(3200)
