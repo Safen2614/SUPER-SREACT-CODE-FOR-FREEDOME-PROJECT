@@ -180,7 +180,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 		pos(0, 0),
 		area(),
 		scale(1),
-		body(),
+		body(3),
 		anchor("bot"),
 	])
 
