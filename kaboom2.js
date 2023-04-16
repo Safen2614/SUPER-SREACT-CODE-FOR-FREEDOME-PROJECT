@@ -4,7 +4,7 @@ kaboom({
 
 // load assets
 loadSprite("peak", "peak.png")
-loadSprite("spike", "spike.png")
+loadSprite("spike", "spikes.png")
 loadSprite("grass", "grass.jpeg")
 loadSprite("portal", "portal.png")
 loadSprite("coin", "coin.png")
