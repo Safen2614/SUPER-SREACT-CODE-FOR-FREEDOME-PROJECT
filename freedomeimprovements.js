@@ -2,7 +2,7 @@ kaboom({
 	background: [0],
 })
 
-// load assets
+
 loadSprite("bean", "peak.png")
 loadSprite("ghosty", "safe.png")
 loadSprite("spike", "spikes.png")
@@ -14,7 +14,7 @@ loadSprite("fake", "portal.png")
 
 setGravity(3200)
 
-// custom component controlling enemy patrol movement
+
 function patrol(speed = 300, dir = 1) {
 	return {
 		id: "patrol",
@@ -35,7 +35,7 @@ function patrol(speed = 300, dir = 1) {
 
 
 
-// define some constants
+
 const JUMP_FORCE = 1320
 const MOVE_SPEED = 480
 const FALL_DEATH = 2400
@@ -68,14 +68,14 @@ const LEVELS = [
                 "=             =          =      = ",
                 "= @   >     =          =        =",
                 "============    ================",
-                "                                   ",
+                "            $$$                       ",
                 "            ====                   ",
 
             ],
 	[
-		"                              = = =                 =",
-        "               =    =             =                 =",
-        "            =       =             =                 =",
+		"                $              = = =                =",
+        "             $  =    =             =                =",
+        "         $   =       =             =                =",
         "         =         = =   =   =    =                 = ",
         "      =^^ ^^ ^^     f=   >        =    ^^^          =",
         "===============================================     =",
@@ -101,7 +101,6 @@ const LEVELS = [
 	],
 ]
 
-// define what each symbol means in the level graph
 const levelConf = {
 	tileWidth: 64,
 	tileHeight: 64,
@@ -164,27 +163,19 @@ const levelConf = {
 
 scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 
-	// add level to scene
 	const level = addLevel(LEVELS[levelId ?? 0], levelConf)
 
-	// define player object
 	const player = add([
 		sprite("bean"),
 		pos(0, 0),
 		area(),
 		scale(1),
-		// makes it fall to gravity and jumpable
 		body(),
-		// the custom component we defined above
-
 		anchor("bot"),
 	])
 
-	// action() runs every frame
 	player.onUpdate(() => {
-		// center camera to player
 		camPos(player.pos)
-		// check fall death
 		if (player.pos.y >= FALL_DEATH) {
 			go("lose")
 		}
@@ -197,18 +188,14 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 	})
 
 	player.onPhysicsResolve(() => {
-		// Set the viewport center to player.pos
 		camPos(player.pos)
 	})
 
-	// if player onCollide with any obj with "danger" tag, lose
 	player.onCollide("danger", () => {
 		go("lose")
-		// play("hit")
 	})
 
 	player.onCollide("portal", () => {
-		// play("portal")
 		if (levelId + 1 < LEVELS.length) {
 			go("game", {
 				levelId: levelId + 1,
@@ -224,15 +211,12 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 			player.jump(JUMP_FORCE * 0.5)
 			destroy(l)
 
-			// play("powerup")
 		}
 	})
 
 	player.onCollide("enemy", (e, col) => {
-		// if it's not from the top, die
 		if (!col.isBottom()) {
 			go("lose")
-			// play("hit")
 		}
 	})
 
@@ -247,22 +231,16 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 
 	player.onCollide("coin", (c) => {
 		destroy(c)
-		// play("coin", {
-		// 	detune: coinPitch,
-		// })
-
 	})
 
 
 
 	function jump() {
-		// these 2 functions are provided by body() component
 		if (player.isGrounded()) {
 			player.jump(JUMP_FORCE)
 		}
 	}
 
-	// jump with space
 	onKeyPress("space", jump)
 
 	onKeyDown("left", () => {
