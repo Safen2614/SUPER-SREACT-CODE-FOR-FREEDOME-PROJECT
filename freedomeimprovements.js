@@ -3,11 +3,10 @@ kaboom({
 })
 
 // load assets
-loadSprite("bean", "/sprites/bean.png")
-loadSprite("bag", "/sprites/bag.png")
+loadSprite("bean", "peak.png")
 loadSprite("ghosty", "safe.png")
 loadSprite("spike", "spikes.png")
-loadSprite("grass", "grass.png")
+loadSprite("grass", "grass.jpeg")
 loadSprite("portal", "portal.png")
 loadSprite("coin", "coin.png")
 
@@ -75,10 +74,10 @@ const FALL_DEATH = 2400
 
 const LEVELS = [
 	[
-		"    0       ",
-		"   --       ",
+		"           ",
+		"          ",
 		"       $$   ",
-		" %    ===   ",
+		"     ===   ",
 		"            ",
 		"   ^^  > = @",
 		"============",
@@ -90,7 +89,7 @@ const LEVELS = [
 		"                          $",
 		"                          $",
 		"           $$         =   $",
-		"  %      ====         =   $",
+		"        ====         =   $",
 		"                      =   $",
 		"                      =    ",
 		"       ^^      = >    =   @",
@@ -122,20 +121,8 @@ const levelConf = {
 			offscreen({ hide: true }),
 			"platform",
 		],
-		"-": () => [
-			sprite("steel"),
-			area(),
-			body({ isStatic: true }),
-			offscreen({ hide: true }),
-			anchor("bot"),
-		],
-		"0": () => [
-			sprite("bag"),
-			area(),
-			body({ isStatic: true }),
-			offscreen({ hide: true }),
-			anchor("bot"),
-		],
+
+
 		"$": () => [
 			sprite("coin"),
 			area(),
@@ -144,14 +131,7 @@ const levelConf = {
 			offscreen({ hide: true }),
 			"coin",
 		],
-		"%": () => [
-			sprite("prize"),
-			area(),
-			body({ isStatic: true }),
-			anchor("bot"),
-			offscreen({ hide: true }),
-			"prize",
-		],
+
 		"^": () => [
 			sprite("spike"),
 			area(),
@@ -160,14 +140,7 @@ const levelConf = {
 			offscreen({ hide: true }),
 			"danger",
 		],
-		"#": () => [
-			sprite("apple"),
-			area(),
-			anchor("bot"),
-			body(),
-			offscreen({ hide: true }),
-			"apple",
-		],
+
 		">": () => [
 			sprite("ghosty"),
 			area(),
@@ -230,11 +203,11 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 	// if player onCollide with any obj with "danger" tag, lose
 	player.onCollide("danger", () => {
 		go("lose")
-		play("hit")
+		// play("hit")
 	})
 
 	player.onCollide("portal", () => {
-		play("portal")
+		// play("portal")
 		if (levelId + 1 < LEVELS.length) {
 			go("game", {
 				levelId: levelId + 1,
@@ -250,7 +223,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 			player.jump(JUMP_FORCE * 1.5)
 			destroy(l)
 			addKaboom(player.pos)
-			play("powerup")
+			// play("powerup")
 		}
 	})
 
@@ -258,7 +231,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 		// if it's not from the top, die
 		if (!col.isBottom()) {
 			go("lose")
-			play("hit")
+			// play("hit")
 		}
 	})
 
@@ -270,7 +243,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 			const apple = level.spawn("#", obj.tilePos.sub(0, 1))
 			apple.jump()
 			hasApple = true
-			play("blip")
+			// play("blip")
 		}
 	})
 
@@ -280,7 +253,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 		// as we defined in the big() component
 		player.biggify(3)
 		hasApple = false
-		play("powerup")
+		// play("powerup")
 	})
 
 	let coinPitch = 0
@@ -293,9 +266,9 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 
 	player.onCollide("coin", (c) => {
 		destroy(c)
-		play("coin", {
-			detune: coinPitch,
-		})
+		// play("coin", {
+		// 	detune: coinPitch,
+		// })
 		coinPitch += 100
 		coins += 1
 		coinsLabel.text = coins
