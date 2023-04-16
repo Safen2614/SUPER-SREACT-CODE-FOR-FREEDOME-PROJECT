@@ -129,10 +129,10 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
         // center camera to player
         camPos(player.pos)
         // chteck fall death
-        if (player.pos.y >= FALL_DEATH) {
-            // go("lose")
-            player.pos = lvl.tile2Pos(0, 0)
-        }
+        // if (player.pos.y >= FALL_DEATH) {
+        //     // go("lose")
+        //     player.pos = lvl.tile2Pos(0, 0)
+        // }
     })
     // action() runs every frame
     player.onUpdate(() => {
@@ -220,7 +220,7 @@ scene("lose", () => {
     add([
         text("You Lose"),
     ])
-    onKeyPress(() => go("game"))
+    onKeyRelease(() => go("game"))
 })
 
 scene("win", () => {
