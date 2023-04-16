@@ -220,7 +220,7 @@ scene("lose", () => {
     add([
         text("You Lose"),
     ])
-    onKeyRelease(() => go("game"))
+    onKeyRelease(("enter") => go("game"))
 })
 
 scene("win", () => {
