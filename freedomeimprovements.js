@@ -5,7 +5,7 @@ kaboom({
 // load assets
 loadSprite("bean", "/sprites/bean.png")
 loadSprite("bag", "/sprites/bag.png")
-loadSprite("ghosty", "ghosty.png")
+loadSprite("ghosty", "safe.png")
 loadSprite("spike", "spikes.png")
 loadSprite("grass", "grass.png")
 loadSprite("portal", "portal.png")
