@@ -202,7 +202,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 	})
 
 	player.onCollide("danger", () => {
-		go("lose")
+		go("levelId + 1")
 	})
 
 	player.onCollide("portal", () => {
