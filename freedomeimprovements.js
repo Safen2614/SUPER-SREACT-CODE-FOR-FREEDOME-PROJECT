@@ -220,9 +220,9 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 
 	player.onGround((l) => {
 		if (l.is("enemy")) {
-			player.jump(JUMP_FORCE * 1.5)
+			player.jump(JUMP_FORCE * 0.5)
 			destroy(l)
-			addKaboom(player.pos)
+
 			// play("powerup")
 		}
 	})
@@ -235,50 +235,24 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 		}
 	})
 
-	let hasApple = false
 
-	// grow an apple if player's head bumps into an obj with "prize" tag
-	player.onHeadbutt((obj) => {
-		if (obj.is("prize") && !hasApple) {
-			const apple = level.spawn("#", obj.tilePos.sub(0, 1))
-			apple.jump()
-			hasApple = true
-			// play("blip")
-		}
-	})
 
-	// player grows big onCollide with an "apple" obj
-	player.onCollide("apple", (a) => {
-		destroy(a)
-		// as we defined in the big() component
-		player.biggify(3)
-		hasApple = false
-		// play("powerup")
-	})
 
-	let coinPitch = 0
 
-	onUpdate(() => {
-		if (coinPitch > 0) {
-			coinPitch = Math.max(0, coinPitch - dt() * 100)
-		}
-	})
+
+
+
+
 
 	player.onCollide("coin", (c) => {
 		destroy(c)
 		// play("coin", {
 		// 	detune: coinPitch,
 		// })
-		coinPitch += 100
-		coins += 1
-		coinsLabel.text = coins
+
 	})
 
-	const coinsLabel = add([
-		text(coins),
-		pos(24, 24),
-		fixed(),
-	])
+
 
 	function jump() {
 		// these 2 functions are provided by body() component
@@ -322,14 +296,14 @@ scene("lose", () => {
 	add([
 		text("You Lose"),
 	])
-	onKeyPress(() => go("game"))
+	onMousePress(() => go("game"))
 })
 
 scene("win", () => {
 	add([
 		text("You Win"),
 	])
-	onKeyPress(() => go("game"))
+	onMousePress(() => go("game"))
 })
 
 go("game")
