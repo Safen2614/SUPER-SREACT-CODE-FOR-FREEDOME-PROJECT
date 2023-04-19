@@ -1,5 +1,6 @@
 kaboom({
 	// background: [0],
+	background-image: url(james.png);
 })
 
 
