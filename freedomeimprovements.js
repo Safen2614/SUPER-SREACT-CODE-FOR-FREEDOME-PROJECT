@@ -1,5 +1,5 @@
 kaboom({
-	background: [0],
+	// background: [0],
 })
 
 
