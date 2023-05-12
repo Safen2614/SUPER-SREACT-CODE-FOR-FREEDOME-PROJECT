@@ -14,7 +14,7 @@ loadSprite("star", "star.png")
 
 
 
-setGravity(3200)
+getGravity(3000)
 
 
 function patrol(speed = 300, dir = 1) {
@@ -41,7 +41,7 @@ function patrol(speed = 300, dir = 1) {
 const JUMP_FORCE = 1320
 const MOVE_SPEED = 480
 const FALL_DEATH = 2400
-
+const GRAVITY = 3000
 const LEVELS = [
 	[   "         *   ",
 		"  *         ",
