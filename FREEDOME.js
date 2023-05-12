@@ -67,71 +67,71 @@
 // ])
 
 
-var lvl = addLevel([
-	// Design the level layout with symbols
-	"@  ^ $$",
-	"=======",
-], {
-	// The size of each grid
-	tileWidth: 64,
-	tileHeight: 64,
-	// The position of the top left block
-	pos: vec2(100, 200),
-	// Define what each symbol means (in components)
-	tiles: {
-		"@": () => [
-			sprite("peak"),
-			area(),
-			body(),
-			anchor("bot"),
-			"player",
-		],
-		"=": () => [
-			sprite("block"),
-			area(),
-			body({ isStatic: true }),
-			anchor("bot"),
-		],
-		"$": () => [
-			sprite("coin"),
-			area(),
-			anchor("bot"),
-			"coin",
-		],
-		"^": () => [
-			sprite("spike"),
-			area(),
-			anchor("bot"),
-			"danger",
-		],
-	},
-})
+// var lvl = addLevel([
+// 	// Design the level layout with symbols
+// 	"@  ^ $$",
+// 	"=======",
+// ], {
+// 	// The size of each grid
+// 	tileWidth: 64,
+// 	tileHeight: 64,
+// 	// The position of the top left block
+// 	pos: vec2(100, 200),
+// 	// Define what each symbol means (in components)
+// 	tiles: {
+// 		"@": () => [
+// 			sprite("peak"),
+// 			area(),
+// 			body(),
+// 			anchor("bot"),
+// 			"player",
+// 		],
+// 		"=": () => [
+// 			sprite("block"),
+// 			area(),
+// 			body({ isStatic: true }),
+// 			anchor("bot"),
+// 		],
+// 		"$": () => [
+// 			sprite("coin"),
+// 			area(),
+// 			anchor("bot"),
+// 			"coin",
+// 		],
+// 		"^": () => [
+// 			sprite("spike"),
+// 			area(),
+// 			anchor("bot"),
+// 			"danger",
+// 		],
+// 	},
+// })
 
-// add([
-//     health(3),
-// ])
-
-
-
-// Get the player object from tag
-const player = lvl.get("player")[0]
-//Back to the original position if hit a "danger" item
-player.onCollide("danger", () => {
-	// player.pos = lvl.tile2Pos(0, 0)
-	player.hurt(1)
-	danger.hurt(1)
-})
+// // add([
+// //     health(3),
+// // ])
 
 
 
-// Eat the coin!
-player.onCollide("coin", (coin) => {
-	destroy(coin)
-	// play("score")
-})
-const JUMP_FORCE = 1320
-const MOVE_SPEED = 480
-const FALL_DEATH = 2400
+// // Get the player object from tag
+// const player = lvl.get("player")[0]
+// //Back to the original position if hit a "danger" item
+// player.onCollide("danger", () => {
+// 	// player.pos = lvl.tile2Pos(0, 0)
+// 	player.hurt(1)
+// 	danger.hurt(1)
+// })
+
+
+
+// // Eat the coin!
+// player.onCollide("coin", (coin) => {
+// 	destroy(coin)
+// 	// play("score")
+// })
+// const JUMP_FORCE = 1320
+// const MOVE_SPEED = 480
+// const FALL_DEATH = 2400
 
 // var lvl = addLevel([
 // 	// Design the level layout with symbols
