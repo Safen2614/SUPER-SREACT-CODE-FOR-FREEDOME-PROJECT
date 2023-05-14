@@ -1,6 +1,4 @@
-kaboom({
-	background: [0],
-})
+import kaboom from "kaboom"
 
 
 loadSprite("bean", "peak.png")
