@@ -14,7 +14,7 @@ loadSprite("star", "star.png")
 
 
 
-getGravity(3000)
+setGravity(3000)
 
 
 function patrol(speed = 300, dir = 1) {
