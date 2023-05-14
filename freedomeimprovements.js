@@ -1,7 +1,7 @@
 import kaboom from "kaboom"
 
-
-loadSprite("bean", "peak.png")
+const k = kaboom()
+k.loadSprite("bean", "peak.png")
 loadSprite("ghosty", "safe.png")
 loadSprite("spike", "spikes.png")
 loadSprite("grass", "grass.jpeg")
