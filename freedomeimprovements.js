@@ -13,8 +13,7 @@ loadSprite("fake", "portal.png")
 loadSprite("star", "star.png")
 
 
-
-setGravity(3200)
+gravity(3200)
 
 
 function patrol(speed = 300, dir = 1) {
@@ -106,6 +105,8 @@ const LEVELS = [
 const levelConf = {
 	tileWidth: 64,
 	tileHeight: 64,
+	width: 100,
+	height: 100,
 	tiles: {
 		"=": () => [
 			sprite("grass"),
@@ -202,6 +203,7 @@ scene("game", ({ levelId, coins } = { levelId: 0, coins: 0 }) => {
 	})
 
 	player.onCollide("danger", () => {
+		// go("lose")
 		go("lose")
 	})
 
