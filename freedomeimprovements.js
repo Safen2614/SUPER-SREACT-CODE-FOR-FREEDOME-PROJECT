@@ -1,9 +1,7 @@
-kaboom({
-	background: [0],
-})
+import kaboom from "kaboom"
 
-
-loadSprite("bean", "peak.png")
+const k = kaboom()
+k.loadSprite("bean", "peak.png")
 loadSprite("ghosty", "safe.png")
 loadSprite("spike", "spikes.png")
 loadSprite("grass", "grass.jpeg")
@@ -13,7 +11,10 @@ loadSprite("fake", "portal.png")
 loadSprite("star", "star.png")
 
 
-gravity(3200)
+
+
+setGravity(3000)
+
 
 
 function patrol(speed = 300, dir = 1) {
@@ -40,7 +41,7 @@ function patrol(speed = 300, dir = 1) {
 const JUMP_FORCE = 1320
 const MOVE_SPEED = 480
 const FALL_DEATH = 2400
-
+const GRAVITY = 3000
 const LEVELS = [
 	[   "         *   ",
 		"  *         ",
@@ -63,19 +64,19 @@ const LEVELS = [
                 "                      =       ",
                 "       ^^     =      =  >       =",
                 "===========================     =",
-                "=             =                 =  ",
-                "=             =                 =",
+                "=  *          =                 =  ",
+                "=             =  *              =",
                 "=             =          =      =  ",
                 "=             =          =      = ",
-                "= @   >     =          =        =",
+                "= @   >    =  =          =      =",
                 "============    ================",
-                "            $$$                       ",
-                "            ====                   ",
+                "            $$$          *             ",
+                "    *       ====                   ",
 
             ],
 	[
-		"                $              = = =                =",
-        "             $  =    =             =                =",
+		" *               $              = = =            *    =",
+        "             $  =    =           *  =                =",
         "         $   =       =             =                =",
         "         =         = =   =   =    =                 = ",
         "      =^^ ^^ ^^     f=   >        =    ^^^          =",
