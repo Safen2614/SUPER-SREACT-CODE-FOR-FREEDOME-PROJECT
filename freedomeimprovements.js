@@ -135,7 +135,7 @@ const levelConf = {
 			area(),
 			body({ isStatic: true }),
 			anchor("bot"),
-			offscreen({ hide: true }),
+			
 			"danger",
 		],
 
